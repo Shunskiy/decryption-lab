@@ -1,7 +1,7 @@
 var btn = document.getElementById('decode');
 
-function change(arr){
-    for(var i =0; i < arr.length; i++){
+function change(arr) {
+    for (var i = 0; i < arr.length; i++) {
         var temp_0 = arr[i][0];
         var temp_1 = arr[i][1];
         var temp_2 = arr[i][2];
@@ -38,7 +38,7 @@ function change(arr){
 }
 
 function replace(arr) {
-    for (var i=0; i < arr.length; i++){
+    for (var i = 0; i < arr.length; i++) {
         arr[i] = arr[i].replace(/BM/g, "*");
         arr[i] = arr[i].replace(/AA/g, " ");
         arr[i] = arr[i].replace(/IK/g, "о");
@@ -100,29 +100,29 @@ function replace(arr) {
 btn.onclick = function () {
     var text = document.getElementById('text').value;
     const spanDecrypt = document.getElementById('spanDecrypt');
-    var re=/(.{16}|.)/g;
+    var re = /(.{16}|.)/g;
     var res = text.match(re);
     var output = '';
     var arr = [];
     var array = [];
     var temp = '';
-    for(var i = 0; i < res.length; i++){
-        output += (res[i]+'\n');
+    for (var i = 0; i < res.length; i++) {
+        output += (res[i] + '\n');
         arr = output.split('\n');
         array.push(arr[i].split(''));
     }
     change(array);
     console.log(array);
     var arr_out = [];
-    for (var k = 0; k < array.length; k++){
+    for (var k = 0; k < array.length; k++) {
         arr_out.push(array[k].join(''));
     }
 
     arr_out = arr_out.join('');
-    var re1=/(.{2}|.)/g;
+    var re1 = /(.{2}|.)/g;
     var res1 = arr_out.match(re1);
     var out = [];
-    for( var j = 0; j < res1.length; j++){
+    for (var j = 0; j < res1.length; j++) {
         out.push(res1[j]);
     }
     replace(out);
